@@ -1,0 +1,21 @@
+CREATE TABLE service_providers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    location VARCHAR(100) NOT NULL,
+    services TEXT NOT NULL,
+    vehicle_type VARCHAR(50) NOT NULL,
+    num_vehicles INT NOT NULL
+);
+INSERT INTO service_providers (id, name, email, phone, location, services, vehicle_type, num_vehicles) VALUES
+(1, 'Pack & Move India', 'info@packandmoveindia.com', '+911234567890', 'Mumbai', 'Packing and Moving, Storage Services', 'truck', 10),
+(2, 'Reliable Transport Services', 'reliabletransportservices@gmail.com', '+919842331112', 'Chennai', 'shifting home', 'truck', 5),
+(3, 'Express Relocation', 'support@expressrelocation.com', '+911234567892', 'Chennai', 'Packing and Moving, Vehicle Transportation', 'pickup truck', 15),
+(4, 'Secure Move', 'help@securemove.in', '+911234567894', 'Hyderabad', 'Office Relocation, International Moving', 'truck', 20),
+(5, 'Swift Packers', 'service@swiftpackers.com', '+911234567893', 'Delhi', 'Packing and Moving, Pet Relocation', 'pickup truck', 30),
+(6, 'City Movers', 'contact@citymovers.com', '+911234567895', 'Pune', 'Household Shifting', 'truck', 8),
+(7, 'Safe Transports', 'info@safetransports.com', '+911234567896', 'Bangalore', 'Corporate Relocation', 'pickup truck', 12),
+(8, 'Quick Movers', 'service@quickmovers.com', '+911234567897', 'Kolkata', 'Local Shifting', 'truck', 6),
+(9, 'Speedy Relocation', 'support@speedyrelocation.com', '+911234567898', 'Ahmedabad', 'Vehicle Transportation', 'pickup truck', 10),
+(10, 'All India Movers', 'contact@allindiamovers.com', '+911234567899', 'Jaipur', 'Packing and Moving', 'truck', 25);
