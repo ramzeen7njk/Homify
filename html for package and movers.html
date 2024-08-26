@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Package & Movers</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <style>
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Set Background Image */
+body {
+    background: url('dark-background.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    color: #e0e0e0;
+}
+
+/* Overlay for Whole Page */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #1a1a1a;
+    color: #e0e0e0;
+    padding: 15px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-left: 10px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: static;
+    margin-right: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #0ABAB5;
+}
+
+/* Navbar Toggler Icon */
+.navbar-toggler {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+    margin-right: 10px;
+}
+
+.navbar-toggler div {
+    width: 100%;
+    height: 3px;
+    background: #e0e0e0;
+}
+
+/* Hero Section */
+#hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #e0e0e0;
+    animation: fadeIn 2s;
+    padding: 0 20px;
+}
+
+#hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    margin-top: 20px; 
+}
+
+#hero p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+#hero .cta {
+    background: #0ABAB5;
+    color: #fff;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background 0.3s, color 0.3s;
+    border: 2px solid #0ABAB5;
+    font-size: 1.1em;
+}
+
+#hero .cta:hover {
+    background: #e59400;
+    color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Section Styling */
+section {
+    padding: 80px 20px;
+    margin-top: 60px;
+    background: rgba(30, 30, 30, 0.8);
+}
+
+section h1, section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0ABAB5;
+    font-size: 2.5em;
+}
+
+section p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Services Section */
+#services {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 80px 20px;
+    background: rgba(30, 30, 30, 0.8);
+}
+
+.service {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: calc(25% - 40px);
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.service h3 {
+    margin: 20px 0 10px;
+    color: #0ABAB5;
+    font-size: 1.5em;
+}
+
+.service p {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Prices Section */
+#prices {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 80px 20px;
+    background: rgba(30, 30, 30, 0.8);
+}
+
+#prices .service {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: calc(25% - 40px);
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#prices .service h3 {
+    margin: 20px 0 10px;
+    color: #0ABAB5;
+    font-size: 1.5em;
+}
+
+#prices .service p {
+    margin-bottom: 20px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+#prices .service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Reviews Section */
+#reviews {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 50px 20px;
+    background: rgba(30, 30, 30, 0.8);
+}
+
+.review {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 30%;
+    margin: 10px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review h3 {
+    margin-bottom: 15px;
+    color: #0ABAB5;
+}
+
+.review p {
+    margin-bottom: 10px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.review .stars {
+    color: #e59400;
+}
+
+/* Contact Form */
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #0ABAB5;
+}
+
+#contact-form input, #contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+#contact-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #0ABAB5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contact-form button:hover {
+    background: #e59400;
+}
+
+/* Sidebar Button */
+.sidebar-button {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: #0ABAB5;
+    color: #fff;
+    padding: 15px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-button:hover {
+    background: #e59400;
+    color: #fff;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+}
+
+footer p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #0ABAB5;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown .dropdown-content a {
+    color: #e0e0e0;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown .dropdown-content a:hover {
+    background-color: #0ABAB5;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #0ABAB5;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .service, #prices .service {
+        width: calc(33.33% - 40px);
+    }
+}
+
+@media (max-width: 992px) {
+    .service, #prices .service {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1a1a1a;
+        display: none;
+    }
+
+    header nav ul.show {
+        display: flex;
+    }
+
+    .navbar-toggler {
+        display: flex;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    .service, #prices .service {
+        width: calc(50% - 30px);
+    }
+
+    .review {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 1.5em;
+    }
+    
+    #hero h1 {
+        font-size: 2.5em;
+    }
+    
+    #hero p {
+        font-size: 1.2em;
+    }
+    
+    .service, #prices .service {
+        width: calc(100% - 30px);
+    }
+    
+    .review {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="navbar-toggler">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="logo">House-Hold Services</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#prices">Prices</a></li> <!-- Added Prices link -->
+                <li><a href="service_seeker.html">Enquiry for Services</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">Register for</a>
+                    <div class="dropdown-content">
+                        <a href="service provider.html">Service Provider</a>
+                    </div>
+                </li>
+                <li><a href="#reviews">Reviews</a></li> <!-- Added Reviews link -->
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Main Content -->
+    <section id="home">
+        <div id="hero">
+            <h1>Your Trusted Service Partner</h1>
+            <p>We make your Household Services Ease</p>
+            <a href="#contact" class="cta">Contact Us</a>
+        </div>
+
+        <div id="intro">
+            <h2>Welcome to House-Hold Services</h2>
+            <p>At Homify, we provide reliable and professional household services for residential and commercial clients.</p>
+        </div>
+
+        <div id="services">
+            <h2>Our Services</h2>
+            <div class="service">
+                <img src="electric.jpg" alt="Electric Service">
+                <h3>Electrical Services</h3>
+                <p>We help you to provide reliable and efficient electrical services.</p>
+                <p><strong>Competitive rates starting from $50 per hour.</strong></p> <!-- Changed to Indian currency -->
+                <p>Certified electricians with modern tools and equipment.</p>
+            </div>
+            <div class="service">
+                <img src="plumbing.jpg" alt="Plumbing Service">
+                <h3>Plumbing Service</h3>
+                <p>To offer high-quality plumbing solutions.</p>
+                <p><strong>To offer high-quality plumbing solutions.</strong></p> <!-- Changed to Indian currency -->
+                <p>Experienced plumbers with advanced plumbing tools.</p>
+            </div>
+            <div class="service">
+                <img src="Carpentry.jpg" alt="Carpentry Services">
+                <h3>Carpentry Services</h3>
+                <p>To deliver expert carpentry craftsmanship.</p>
+                <p><strong>SReasonable rates starting from $45 per hour.</strong></p> <!-- Changed to Indian currency -->
+                <p>Skilled carpenters with top-notch equipment.</p>
+            </div>
+            <div class="service">
+                <img src="ac.jpg" alt="HVAC Services">
+                <h3>HVAC Services</h3>
+                <p> To ensure efficient and reliable AC services.</p>
+                <p><strong>Service charges starting from $60 per hour.</strong></p> <!-- Changed to Indian currency -->
+                <p>Certified technicians with state-of-the-art tools.</p>
+            </div>
+            <div class="service">
+                <img src="clean.jpg" alt="Cleaning Services">
+                <h3>Cleaning Services</h3>
+                <p> To provide thorough and professional cleaning services.</p>
+                <p><strong>Competitive rates starting from $30 per hour.</strong></p> <!-- Changed to Indian currency -->
+                <p> Trained cleaners with high-quality cleaning supplies.</p>
+            </div>
+            <div class="service">
+                <img src="painting.jpg" alt="Painting Services">
+                <h3>Painting Services</h3>
+                <p> To offer premium painting services.</p>
+                <p><strong> Affordable rates starting from $35 per hour.</strong></p> <!-- Changed to Indian currency -->
+                <p>Skilled painters with quality paints and tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prices Section -->
+    <section id="prices">
+        <h2>Prices</h2>
+        <div class="service">
+            <h3>Electrical Services</h3>
+            <p><strong>Starting at ₹300</strong></p> <!-- Changed to Indian currency -->
+            <p>Includes Wiring and rewiring, circuit breaker installation, lighting installation and repair, outlet and switch replacement, electrical panel upgrades, ceiling fan installation, electrical troubleshooting, emergency electrical repairs, home automation system installation, generator installation and maintenance.</p>
+        </div>
+        <div class="service">
+            <h3>Plumbing Services</h3>
+            <p><strong>Starting at ₹250</strong></p> <!-- Changed to Indian currency -->
+            <p>Includes Pipe repair and replacement, drain cleaning, leak detection, faucet and fixture installation, water heater installation and repair, sewer line repair, sump pump installation, toilet repair and installation, garbage disposal repair, backflow prevention.</p>
+        </div>
+        <div class="service">
+            <h3>HVAC Services</h3>
+            <p><strong>Starting at ₹1,500</strong></p> <!-- Changed to Indian currency -->
+            <p>Includes professional AC installation, AC maintenance, AC repair, duct cleaning, thermostat installation, refrigerant recharge, filter replacement, emergency AC services, indoor air quality testing, AC system inspection.</p>
+        </div>
+        <div class="service">
+            <h3>Cleaning Services</h3>
+            <p><strong>Starting at ₹750/month</strong></p> <!-- Changed to Indian currency -->
+            <p>Safe and secure Residential cleaning, commercial cleaning, carpet cleaning, window cleaning, move-in/move-out cleaning, deep cleaning, recurring cleaning, office cleaning, post-construction cleaning, special event cleaning.</p>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <h3>Rajesh Gupta</h3> <!-- Indian customer name -->
+            <p>“The Electrical Services made my move so easy and stress-free. The team was professional and efficient. Highly recommend!”</p>
+            <div class="stars">
+                ★★★★★
+            </div>
+        </div>
+        <div class="review">
+            <h3>Priya Patel</h3> <!-- Indian customer name -->
+            <p>“Great service! The Plumbers were punctual and handled everything with care. I’m very satisfied with their service.”</p>
+            <div class="stars">
+                ★★★★☆
+            </div>
+        </div>
+        <div class="review">
+            <h3>Suresh Kumar</h3> <!-- Indian customer name -->
+            <p>“Excellent service from start to finish. The customer service was top-notch and the service went smoothly.”</p>
+            <div class="stars">
+                ★★★★★
+            </div>
+        </div>
+      <div class="review">
+        <h3>Mohan Sharma</h3>
+        <p>"The Cleaning Service exceeded my expectations. They were punctual, professional, and took great care of my belongings during the process. Highly recommended!"</p>
+        <div class="stars">
+            ★★★★☆
+        </div>
+      </div>
+      <div class="review">
+        <h3>Neha Singh</h3>
+        <p>"I had a fantastic experience with AC Services. They provided excellent service and made my move stress-free. Thank you!"</p>
+        <div class="stars">
+            ★★★★★
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact">
+        <div id="contact-form">
+            <h2>Contact us</h2>
+            <form id="quote-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Your Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="move-date">Service Date</label>
+                <input type="date" id="move-date" name="move-date" required>
+
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+    <!-- About Us Section -->
+  <section id="about">
+    <div>
+        <h2>About Us</h2>
+        <p>Welcome to House-Hold Services, your trusted partner in household solutions. With years of experience, we specialize in residential and commercial services, ensuring a hassle-free experience for our clients. Our dedicated team is committed to providing top-notch service, making your routine smooth and stress-free.</p>
+        <p>HOMIFY, we prioritize customer satisfaction and reliability. Whether you're moving locally or across the country, we have the expertise and resources to handle all your House-Hold needs efficiently.</p>
+    </div>
+  </section>
+    <!-- Footer -->
+    <footer>
+        <div class="contact-info">
+            <p>Contact us at <strong>info@householdservices.com</strong></p>
+            <p>Call us: <strong>+1 (123) 456-7890</strong></p>
+        </div>
+        <div class="social-media">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+        <div class="footer-nav">
+            <a href="#home">Home</a> | <a href="#about">About Us</a> | <a href="#services">Services</a> | <a href="#prices">Prices</a> | <a href="#reviews">Reviews</a> | <a href="#contact">Contact Us</a> | <a href="#faqs">FAQs</a>
+        </div>
+        <p>&copy; 2024 HOMIFY. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Slick Carousel
+            $('.service').slick({
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+
+            // Form Submission Handler
+            $('#quote-form').submit(function(event) {
+                event.preventDefault();
+                // Assuming AJAX request to handle form submission
+                // Example: $.post('submit.php', $(this).serialize(), function(response) { ... });
+                alert('Thank you! We will get back to you soon.');
+                // Clear form fields after submission
+                $(this)[0].reset();
+            });
+        });
+    </script>
+    <!-- Additional JavaScript for smoother animations -->
+    <script>
+        $(document).ready(function() {
+            // Additional animations on section reveal
+            $('section').each(function() {
+                $(this).css('opacity', 1).css('transform', 'translateY(0)');
+            });
+        });
+    </script>
+    <script>
+        document.querySelector('.navbar-toggler').addEventListener('click', function() {
+            document.querySelector('header nav ul').classList.toggle('show');
+        });
+    </script>
+    <script>
+    document.querySelector('.dropbtn').addEventListener('click', function() {
+        document.querySelector('.dropdown-content').classList.toggle('show');
+    });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Quote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+            background-color: #1a1a1a;
+            padding: 30px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .navbar h1 {
+            color: #0ABAB5;
+            margin: 0;
+            font-size: 28px;
+        }
+        .quote-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+        }
+        h2 {
+            color: #0ABAB5;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+        button {
+            background: #0ABAB5;
+            color: #1e1e1e;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #e59400;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Get Quote</h1>
+    </nav>
+
+    <main>
+        <section class="quote-form">
+            <h2>Request a Quote</h2>
+            <form id="quote-form" action="quote_handler.php" method="POST">
+                <input type="hidden" id="provider-name" name="provider_name">
+
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Your Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="problem">Problem Regarding the Service:</label>
+                <textarea id="problem" name="problem" rows="5" required></textarea>
+
+                <label for="service-date">Preferred Service Date:</label>
+                <input type="date" id="service-date" name="service_date" required>
+
+                <label for="additional-info">Additional Information:</label>
+                <textarea id="additional-info" name="additional_info" rows="5"></textarea>
+
+                <button type="submit">Submit Quote Request</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Get the provider name from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const providerName = urlParams.get('provider_name');
+        
+        // Set the provider name in the hidden input field
+        const providerNameInput = document.getElementById('provider-name');
+        providerNameInput.value = providerName || '';
+
+        console.log('URL provider name:', providerName);
+        console.log('Set provider name:', providerNameInput.value);
+
+        // Handle form submission
+        document.getElementById('quote-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            console.log('Form data:', Object.fromEntries(formData));
+
+            fetch('quote_handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    alert('Your quote request has been submitted successfully. We will contact you soon.');
+                    this.reset();
+                } else {
+                    alert('Error: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting your request. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
